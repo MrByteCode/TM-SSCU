@@ -1,0 +1,88 @@
+@CHARSET "ISO-8859-1";
+body
+{
+overflow:visible;
+display:block;
+width: 1020px;
+height:520px;
+position: relative;
+margin-left: auto;
+margin-right: auto;
+
+
+}
+.div_cabecera
+{
+position:absolute;
+margin-top:2px;
+margin-left:2px;
+}
+.titulo_cabecera
+{
+	width:700px;
+	font-size:30px;
+	font-weight: bold;
+	
+}
+.div_login
+{
+	position:relative;
+	margin-left:1px;
+	margin-top:20px;
+	
+	
+}
+.div_lateral
+{
+ position:absolute;
+ margin-left:2px;
+ margin-top:120px;
+ width:180px;
+  border-right-width:1px;
+  border-right-style:solid;
+  border-right-color:grey;
+ height:100%;
+
+}
+.cuerpo
+{
+	
+	margin-top:120px;
+	position:absolute;
+	margin-left:183px;
+	align:center;
+	width:900px;
+}
+
+.enlaces_lateral
+{
+	font-size:15px;
+	
+}
+
+.enlaces_lateral a
+{
+	text-decoration:none;
+	color:	#CC0033;
+	
+}
+
+.barra-lateral {
+            background-color: black;
+            float: left;
+            width:1px;
+            
+        }
+
+ .cuerpo p
+ {
+ margin-left:15px;
+ align:left;
+ }
+ 
+ .menu_usuario
+ {
+ position:relative;
+ margin-top:20px;
+ }
+ 

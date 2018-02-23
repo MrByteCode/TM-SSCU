@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="/iPortal/theme/metro/css/bme.main.min_en.css?V300R005C20SPC003B014" />
+<script type="text/javascript" src="/iPortal/theme/metro/js/bme.min.js?V300R005C20SPC003B014"></script>
+
+<link type="text/css" rel="stylesheet" href="/iPortal/theme/metro/css/bme.min_zh.css"/>
+
+<style type="text/css">
+
+.loginForm > h1{font-size:30px; font-weight:lighter;color: #3b3b3b;font-family: "OpenSansLight";}
+.loginForm > h2{margin:10px 0 40px; font-weight:lighter;color: #3b3b3b;font-family: "OpenSansLight";}
+.inputPanel{vertical-align: middle;padding-right:80px;margin-bottom: 10px;}
+.formItem {position:relative;}
+.formItem { border: 1px solid #E4E4E4; background-color: #fff; font-size: 12px; display: block; padding: 0 8px; vertical-align: top;
+	background:-webkit-gradient(linear,0% 0%, 0% 100%, from(#fff), to(#f8f8f8));
+	background:-webkit-linear-gradient(0% 0% 270deg,#fff,#f8f8f8);
+	background:-moz-linear-gradient(0% 0% 270deg,#fff,#f8f8f8);
+	background:-ms-linear-gradient(0% 0% 270deg,#fff,#f8f8f8);
+	background:-o-linear-gradient(0% 0% 270deg,#fff,#f8f8f8);
+	background:linear-gradient(0% 0% 270deg,#fff,#f8f8f8);
+}
+.formItem h3 {height: 13px; line-height: 13px !important; font-size: 10px; font-weight: normal; padding:0;margin:0;}
+.formItem input { border: none; background: none; color: #000; display: block; width: 100%; height:30px; font-size:14px;line-height:normal}
+.formItem.sel { border-color: #53b8eb }
+.formItem .normal { color: #999 }
+.formItem .filled { color: #333 }
+.formItem.sel input { color: #53b8eb }
+.formItem.select, .formItem.addition, .formItem.date { box-shadow:0 -1px 0 rgba(0,0,0,0.04);position: relative; }
+.formItem.find{position:relative;padding-left:30px;}
+.formItem.find .iconFind{position:absolute;left:5px;top:2px;}
+.formItem.find:hover .iconFind{background-position: -422px -6px}
+.formItem:hover{border-color:#0088CC}
+.codeSection{position:relative;margin: 20px 0 20px 0;}
+.codeSection_refresh{position:absolute;right:80px;}
+.login_btn{text-align: right;margin-top: 20px;margin-right:80px;}
+.btn,.btn:after{ height: 31px; line-height: 30px;font-size:16px;display: inline-block; vertical-align: middle; position: relative; padding: 0 20px; background: #0588c9; border-radius: 1px; text-align: center;background:url(/iPortal/theme/metro/images/btn_bg.png) repeat-x top left;font-weight:bolder}
+.nextBtn{color:#fff;border-radius:1px 0 0 1px;background-position:0px -152px;margin-right:10px;}
+.nextBtn:after{content:"";position:absolute;padding:0px;right:-9px;top:0px;width:10px;height:100%;background-position:right -495px;}
+.nextBtn:hover{color:#fff;background-position:0 -190px;border-left-color:#19AADA;background-color:transparent}
+.nextBtn:hover:after{color:red;background-position:right -533px}
+.input_error{border: 1px solid #F12C2C;}
+.formItem.input_error:hover{border-color:#F12C2C}
+.icon_error{padding: 0 0 0 20px;color: #f12c2c;font-size: 11px;line-height: 25px;}
+.text_login {font-family: Arial, Helvetica, sans-serif; font-size: 24px;}
+.text_login_title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 27px;
+	font-weight: bold;
+}
+
+/*.css for popwin.*/
+.popwin {direction:ltr; position: absolute; z-index: 5000 !important; left: 0px; top: 0px; width: 100%; height: 100%; background: transparent; }
+.popwin.dragging{/*IE:*/filter:alpha(opacity=70);/*Firefox:*/opacity:0.7;  /*IE Need:*/background-color:#cccccc;}
+.popwin_masker { display:block; position:fixed; z-index:5000 !important; width:100%; height:100%; left:0px; top:0px; background:url(/iPortal/theme/metro/images/popwin/popwin_masker.png) repeat;}
+.popwin_masker_transparent { display:block; position:fixed; z-index:5001 !important; width:100%; height:100%; left:0px; top:0px; background:url(/iPortal/theme/metro/images/popwin/popwin_masker_transparent.png) repeat; cursor:move}
+.popwin_container { position:absolute; top:0px; left:0px; }.popwin_top { height: 86px; outline:none}
+.popwin_top .popwin_top_left, .popwin_top .popwin_top_right { width:25px; height:86px; float:left; }
+.popwin_top .popwin_top_center { position: relative; height: 86px; float: left; }
+.popwin_top .popwin_top_left { background-image: url(/iPortal/theme/metro/images/popwin/popwin_tl.png); }
+.popwin_top .popwin_top_center { background-image: url(/iPortal/theme/metro/images/popwin/popwin_tc.png); }
+.popwin_top .popwin_top_right { background: url(/iPortal/theme/metro/images/popwin/popwin_tr.png) no-repeat top right; }
+.popwin_bottom { height: 26px; outline:none}
+.resizable .popwin_resize:hover {cursor:se-resize}
+.popwin_bottom .popwin_bottom_left, .popwin_bottom .popwin_bottom_right { width: 25px; height: 26px; font-size: 0px; line-height: 0px; float: left; }
+.popwin_bottom .popwin_bottom_center { height: 26px; font-size: 0px; line-height: 0px; float: left; }
+.popwin_bottom .popwin_bottom_left { background: url(/iPortal/theme/metro/images/popwin/popwin_bl.png) no-repeat left -47px; }
+.popwin_bottom .popwin_bottom_center { background: url(/iPortal/theme/metro/images/popwin/popwin_bc.png) repeat 0 -47px; }.popwin_bottom .popwin_bottom_right {  background: url(/iPortal/theme/metro/images/popwin/popwin_br.png) no-repeat right -47px }
+.popwin_middle .popwin_middle_left, .popwin_middle .popwin_middle_right {width:25px; height:100%;font-size: 0px; line-height: 0px; float:left; }
+.popwin_middle .popwin_middle_center { float:left; height:100%; outline:none}
+.popwin_middle .popwin_middle_left { background-image: url(/iPortal/theme/metro/images/popwin/popwin_ml.png); }
+.popwin_middle .popwin_middle_center { background-image: url(/iPortal/theme/metro/images/popwin/popwin_mc.png); }
+.popwin_middle .popwin_middle_right { background: url(/iPortal/theme/metro/images/popwin/popwin_mr.png) top right repeat-y; }
+.popwin_content_ifra{padding:45px 18px 60px 18px;background-color: #fff;overflow: auto;}
+.popwin_resizing {height:8px; width:8px; margin:-7px 0 0 -10px;position:absolute;background: url(/iPortal/theme/metro/images/popwin/drag.png) no-repeat 0px 0px;}
+.popwin_title { position: absolute; white-space: nowrap; overflow: hidden; left: 27px; right: 45px; height: 44px; line-height: 40px; font-size: 40px; margin: 45px 0px 0px 0px; color: #3b3b3b; font-weight: normal; float: left; }
+.popwin_close { position: absolute; width: 16px; height: 16px; right: 31px; top: 52px; background: url(/iPortal/theme/metro/images/popwin/popwin_close.png) no-repeat center top; cursor: pointer; }
+.popwin_close:hover { background: url(/iPortal/theme/metro/images/popwin/popwin_closeHover.png) no-repeat center top; }
+.popwin_close.cbme_disabled:hover{background-position: center top}
+.popwin_content { width: 400px; padding: 60px 56px 60px 0px; word-wrap: break-word; font-weight: normal; *float: left; }
+.popwin_content h4 { margin: 0px; padding: 0px; margin-bottom: 4px; font-size: 12px; font-weight: bold; color: #333333; }
+.popwin_content p { font-weight: normal; color: #333333; float: left; }
+.popwin_content div{text-align: center;vertical-align: middle;}
+.popwin_content.popwin_alert{text-align: center;vertical-align: middle;}
+.popwin .popwin_iframe{width:100%; height:100%}
+.popwin .popwin_loading{position:absolute; width:30%;top:40%;left:35%; text-align:center; min-width:100px; overflow:hidden}
+.popwin_error { background: url(/iPortal/theme/metro/images/popwin/popwin_error.png) no-repeat 0px 0px; height:35px ;width:35px;display:inline-block; }
+.popwin_success { background: url(/iPortal/theme/metro/images/popwin/popwin_success.png) no-repeat 0px 0px;height:35px ;width:35px;display:inline-block; }
+.popwin_confirm { background: url(/iPortal/theme/metro/images/popwin/popwin_confirm.png) no-repeat 0px 0px;font-weight: normal;height:35px ;width:35px;display:inline-block;}
+.popwin_warning { background: url(/iPortal/theme/metro/images/popwin/popwin_warning.png) no-repeat 0px 0px; font-weight: normal; height:35px ;width:35px;display:inline-block;}
+.popwin_content_ifra iframe { margin: 0px 0px 0px 0px;background:url("/iPortal/theme/metro/images/loading.gif") no-repeat center center; }
+.popwin_content_dom { margin: 4px 0px 0px 0px; overflow: auto; }
+.popwin_content_html { margin: 4px 0px 0px 0px; overflow: auto; }
+.popwin_btn_group { position: relative; width: 100%; padding: 0px 0px 4px 16px; text-align: center;}
+.popwin_btn_group .bc_btn { margin-right: 20px; }
+.popwin_btn_normal, .popwin_btn_over { width: 60px; height: 20px; margin: 0px 4px; border: none; background: transparent url(/iPortal/theme/metro/images/popwin/popwin_btn_bg.gif) no-repeat 0px 0px; cursor: pointer; }
+.popwin_btn_over { background-position: 0px -20px; }
+.popwin_content_extendmenu { float: left; }
+.popwin_content_extendmenu li a { width: 100%; _width: auto; height: 20px; padding: 0px 8px; background-color: #f9f9f9; line-height: 20px; color: #000000; cursor: default; }
+.popwin_content_extendmenu li a:link, .popwin_content_extendmenu li a:active, .popwin_content_extendmenu li a:visited { background-color: #f9f9f9; text-decoration: none; color: #000000; }
+.popwin_content_extendmenu li a:hover { background-color: #d9f1f8; text-decoration: none; color: #000000; }
+.popwin_extendmenu .popwin_top { height: 6px; }
+.popwin_extendmenu .popwin_top .popwin_top_left, .popwin_extendmenu .popwin_top .popwin_top_right { width: 6px; height: 6px; font-size: 0px; line-height: 0px; }
+.popwin_extendmenu .popwin_top .popwin_top_center { height: 6px; font-size: 0px; line-height: 0px; }
+.popwin_extendmenu .popwin_top .popwin_top_left { background-image: url(/iPortal/theme/metro/images/popwin/popwin_tl_menu.png); }
+.popwin_extendmenu .popwin_top .popwin_top_center { background-image: url(/iPortal/theme/metro/images/popwin/popwin_tc_menu.png); }
+.popwin_extendmenu .popwin_top .popwin_top_right { background-image: url(/iPortal/theme/metro/images/popwin/popwin_tr_menu.png); }
+.popwin_middle_masker { position: absolute; left: 0px; display: none; }
+.popwin_resize_shadow {display:none; width:100%; height:100%; position: absolute;z-index:5000;background:url(/iPortal/theme/metro/images/popwin/popwin_masker_transparent.png) repeat;cursor:se-resize;}
+.popwin_resize_shadow.resizing{border:1px solid black; background:white;/*IE:*/filter:alpha(opacity=50);/*Firefox:*/opacity:0.5;}
+.popwin_extendmenu .popwin_bottom .popwin_bottom_left, .popwin_extendmenu .popwin_bottom .popwin_bottom_right { width: 6px; height: 6px; }
+.popwin_extendmenu .popwin_bottom .popwin_bottom_center { height: 6px; }
+.popwin_extendmenu .popwin_bottom .popwin_bottom_left { background-image: url(/iPortal/theme/metro/images/popwin/popwin_bl_menu.png); }
+.popwin_extendmenu .popwin_bottom .popwin_bottom_center { background-image: url(/iPortal/theme/metro/images/popwin/popwin_bc_menu.png); }
+.popwin_extendmenu .popwin_bottom .popwin_bottom_right { background-image: url(/iPortal/theme/metro/images/popwin/popwin_br_menu.png); }
+.popwin_extendmenu .popwin_middle .popwin_middle_left, .popwin_extendmenu .popwin_middle .popwin_middle_right { width: 6px; }
+.popwin_extendmenu .popwin_middle .popwin_middle_left { background-image: url(/iPortal/theme/metro/images/popwin/popwin_ml_menu.png); }
+.popwin_extendmenu .popwin_middle .popwin_middle_center { background-image: url(/iPortal/theme/metro/images/popwin/popwin_mc_menu.png); }
+.popwin_extendmenu .popwin_middle .popwin_middle_right { background-image: url(/iPortal/theme/metro/images/popwin/popwin_mr_menu.png); }
+.popwin_extendmenu .popwin_title { display: none; }
+.popwin_content_tree { overflow: auto; }
+</style>
+
+<script type="text/javascript">
+
+try{jBME.ready(function ()
+		{
+		jBME.vars["userSelect"] = new jBME.ComboBox("userSelect",'select');
+					
+			    $("#userSelect_select").unbind("blur.select").bind("blur.select", function(){
+		                $('#userSelect_select_value').valid();
+						jBME.EFT.onblur(this);
+		            });
+		            $("#userSelect_select").unbind("focus.select").bind("focus.select", function(){
+				        jBME.EFT.onfocus(this);
+		            });
+		});
+		}catch(e){}
+
+		try{jBME.ready(function(){
+			jBME.Field.init("userStatus");
+			})}catch(e){}
+		
+$(function() {
+    //初始化login_submit变量
+    window.login_submit = true;
+    $('#login').alignMiddle(100);
+    $('#loginErrorMsg').removeClass("icon_error");
+
+    var options = {
+        rules: {
+            username: {
+                required: true
+            },
+            password: {
+                required: true
+            },
+            validate: {
+                required: true
+            }
+        },
+        messages: {
+            username: {
+                required: "Enter the user name."
+            },
+            password: {
+                required: "Enter the password."
+            },
+            validate: {
+                required: "Enter the verification code."
+            }
+        },
+        
+        showErrors: function(errorMap, errorList) {
+            //make the border of input error
+            var jqElement = $(this.lastElement); 
+            jqElement.parent().toggleClass("input_error",jqElement.attr("bmevstatus") == "fail");
+    
+            if (this.numberOfInvalids())
+            {
+                // only display the last error message
+                var errorMsg;
+                if (this.errorList.length)
+                {
+                    errorMsg = this.errorList[0].message;
+                }
+                else
+                {
+                    var lastEleName;
+                    for (var name in this.invalid)
+                    {
+                        lastEleName = name;
+                    }
+                    errorMsg = this.submitted[lastEleName];
+                }
+                
+                $('#loginErrorMsg').text(errorMsg);
+                $('#loginErrorMsg').addClass("icon_error");
+                $(".login_error").show();
+            }
+            else
+            {
+            	$('#loginErrorMsg').text("");
+            	$('#loginErrorMsg').removeClass("icon_error");
+            }
+        },
+        // specifying a submitHandler prevents the default submit
+        submitHandler: function() {
+            checkLoginAndSubmit();
+        },
+
+        onsubmit: true
+    };
+
+    // delete default validator created in jquery.bme.validate.js
+    $(document.body).removeData('validator');
+    validator = $(document.body).validate(options);
+    validator = $('#loginForm').validate(options);
+
+	//Press <Enter> or <Space> key to submit login form when Submit button is focus
+    $("#submitBtn").bind("keypress", function(e) {
+        if( e.which==13|| e.which==32)
+        {
+        	$(this).click();
+        }
+    });
+})
+
+function refreshVCodeImg()
+{
+    $("#validateimg").attr("src", "verifycode?"+Math.random());
+}
+
+function submitLogin() {
+	$("#username").blur();
+    $("#password").blur();
+    $("#validate").blur();
+    $("#loginForm").submit();
+}
+
+function changeLanguage()
+{
+    forwardUrl("login.action?language=" + $("#language").val());
+}
+
+function checkLoginAndSubmit() {
+    //防止反复提交
+    if(!window.login_submit)
+    {
+        return;
+    }
+    //var userTypeInp = $("#userType").val();
+    var userTypeInp = $("#userSelect_select_value").val();
+    var usernameInp = $("#username").val();
+    var passwordInp = $("#password").val();
+    var languageInfo = $("#language").val();
+    var nameInfo = "metro";
+    //return false;
+    //设置主题    
+    if("ar" == languageInfo)
+    {
+    	nameInfo = "arab";
+    }
+    var vcode = $("#validate").val();
+    var dstInfo = getBrowerDSTInfo();
+    window.login_submit = false;
+    $.ajax({url:"authenticate.action", 
+        data:({username:usernameInp, password:passwordInp, vcode:vcode, dstInfo:dstInfo, language:languageInfo, name:nameInfo, userType:userTypeInp}),
+        type: "POST",
+        cache: "false",
+        success: function(json)
+        {
+            //请求回来后，将变量重新置为true
+            window.login_submit = true;
+            var jsonObj = eval('('+json+')');
+            if (jsonObj.isSuccess)
+            {
+            	if (jsonObj.nextAction)
+                {   
+            		//"234740111"为密码过期的错误码
+            		if (-1 != jsonObj.nextAction.indexOf("business.action?BMEBusiness=passwordManagement") && "234740111" == jsonObj.resultMsg)
+            		{     
+            			$(".popwin_masker").show();
+            			$("#winmsg").show();
+            			
+            			
+            			//if (confirm("The password has expired. Change the password."))
+            			//{
+            			//	location.replace(jsonObj.nextAction);
+            			//}
+            		}
+            		else
+            		{
+            			location.replace(jsonObj.nextAction);
+            		}
+
+                }
+                else
+                {
+                    location.replace("main.action?ssLogin=true&BMEWebToken=cd05501b-a960-4f23-b990-b58e75e64090");
+                }
+            }
+            else
+            {
+                $('#loginErrorMsg').text(jsonObj.resultMsg);
+                $('#loginErrorMsg').addClass("icon_error");
+                $(".login_error").show();
+                refreshVCodeImg();
+            }
+        },
+        error :function()
+        {
+            //请求回来后，将变量重新置为true
+            window.login_submit = true;
+        }
+    });
+}
+
+function getBrowerDSTInfo()
+{
+    try
+    {
+        return gcu_getBrowserDSTInfo();
+    }
+    catch (ex)
+    {
+        return "";
+    }
+}
+
+
+document.onkeydown = function(event)
+{
+    if (!event)
+    {
+    	event = window.event;
+    }
+    var keycode = $.browser.mozilla?event.which:event.keyCode;
+    if(keycode == 13)
+    {
+        submitLogin();
+        return false;
+    }
+}
+
+$(function() {
+	$("#popwin_close").click(function() {
+		$(".popwin_masker").hide();
+		$("#winmsg").hide();
+	});
+	
+	$("span#cancel").click(function() {
+		$(".popwin_masker").hide();
+		$("#winmsg").hide();
+	});
+	
+	$("span#confirm").click(function() {
+		location.replace("business.action?BMEBusiness=passwordManagement&BMEWebToken=cd05501b-a960-4f23-b990-b58e75e64090");
+	});
+})
+
+</script>
+
+
+<link type="image/x-icon" href="/iPortal/theme/metro/images/iportal/logo_huawei.png" rel="shortcut icon">
+<title>iPortal</title>
+</head>
+
+<body class="login_body" >
+<div class="nofloat"></div>
+<div id="login">
+
+<div class="login_border_bottom">
+<div class="login_form">
+<form id="loginForm" name="loginForm" action="" method="post" class="loginForm">
+   <div style="margin-bottom: 10px;">
+   	  <span class="text_login_title">MANAGEMENT CONSOLE</span>
+   </div>
+   <table width="320px;">
+      <tr>
+         <td>
+        	<img src="theme/metro/images/iportal/icon.png"/>
+         </td>
+         <td>
+           	<span class="text_login">LOGIN</span>
+         </td>
+         <td align="right" valign="bottom">
+            <select id="language" name="language" style="width: 120px; " tabindex="1" onchange="changeLanguage()">
+			   <option  value="zh_CN">中文</option>
+			   <option selected value="EN">English</option>   
+		 	</select>
+         </td>
+      </tr>
+   </table>
+   
+   <div class="login_error text_error">
+     <span id="loginErrorMsg" class="icon_error"></span>
+   </div>
+
+
+	
+	<div id="userStatus" class="bc_field bc " style="width: 320px; padding-bottom: 5px" >
+		<div id="userStatus_field_border" class="bc_field_border" body="1" >
+		<div class="bc_field_label " >User Type<span class="bc_field_req"></span></div>
+		<div class="bc_field_body">
+		<div class="bc_combobox bc_ipt_ele bc" style="" id="userSelect">
+		<div class="bc_border bc_combobox_select ele_normal" id="userSelect_border">
+		<input id="userSelect_select" class="input_text_normal" readonly="readonly"  bmeVBorder="#userStatus_field_border"/>
+		<div class="bc_combobox_select_img"></div>
+		<input id="userSelect_select_value" name="typeSelect" style="display:none;"/></div>
+		<div id="userSelect_dropdownlist" class="bc_combobox_dropdown" style="display:none">
+		<div class="combobox_start" tabindex="0" style="outline:none" hidefocus="true"></div>
+		        
+		<div id="userSelect_0_div" class="bc_comboboxitem " title="PTL Master" data-key="PTL Master">
+		<label id="userSelect_0_text" class="bc_comboboxitem_text" for="userSelect_0">System Administrator</label>
+		</div>
+		<div id="userSelect_1_div" class="bc_comboboxitem " title="PTL User" data-key="PTL User">
+		<label id="userSelect_1_text" class="bc_comboboxitem_text" for="userSelect_1">Service Administrator</label>
+		</div>
+		<div class="combobox_end" tabindex="0" style="outline:none" hidefocus="true"></div></div>
+		</div></div>
+  		</div>
+	</div>
+	
+
+   <div class="inputPanel">
+     <label class="text formItem">
+       <h3 class="formsTitle">User Name:<span class="verify_info"></span></h3>
+       <input type="text" name="username" id="username"
+			class="input_text_normal" focusborder="ele_focus"
+			maxlength="32" tabindex="1" />
+     </label>
+   </div>
+   <div class="inputPanel">
+     <label class="text formItem">
+       <h3 class="formsTitle">Password:<span class="verify_info"></span></h3>
+       <input type="password" name="password" id="password" autocomplete="off"
+			class="input_text_normal" focusborder="ele_focus"
+			maxlength="32" tabindex="2" />
+     </label>
+   </div>
+   <div class="codeSection"><a href="javascript:;"
+	class="codeSection_refresh" onclick="refreshVCodeImg()">REFRESH</a> <img id="validateimg"
+	src="verifycode?" width="100" height="20" border="0" >
+   </div>
+   <div class="inputPanel">
+     <label class="text formItem">
+       <h3 class="formsTitle">Verification Code:<span class="verify_info"></span></h3>
+       <input type="text" name="validate" id="validate" class="input_text_normal" focusborder="ele_focus" maxlength="4" tabindex="3" />
+     </label>
+   </div>
+   <div id="submitBtn" class="login_btn" onclick="btnAct(this, submitLogin);"><a class="btn nextBtn" href="javascript:;">Login</a></div>
+   
+   <!-- popwin -->
+   <div class="popwin_masker" style="display:none;"></div>
+	<div id="winmsg" style="height: 308px; width: 506px; left:587px; top: 228.5px; display:none;" class="popwin resizable" >
+		<div class="_container">
+			<div id="popwin_top" class="popwin_top" hidefocus="true" tabindex="0">
+				<div class="popwin_top_left"></div>
+				<div id="popwin_top_center" class="popwin_top_center" style="width: 456px;">
+					<div id="popwin_title" class="popwin_title" style="cursor: move;">Confirm</div>
+					<div id="popwin_close" class="popwin_close"></div>
+				</div>
+				<div class="popwin_top_right"></div>
+				<div class="nofloat"></div>
+			</div>
+			<div class="popwin_middle" style="height: 244px;">
+				<div class="popwin_middle_masker"></div>
+				<div class="popwin_middle_left"></div>
+				<div class="popwin_middle_center" tabindex="0" hidefocus="true" style="width: 456px;">
+					<div class="popwin_content">
+						<div>
+							<div class="popwin_confirm bc_msgbox_img confirm"></div>The password has expired. Change the password.
+							<div class="nofloat"></div>
+						</div>
+					</div>
+					<div class="nofloat"></div>
+					<div class="popwin_btn_group">
+						<span id="cancel" tabindex="0" class="bc_btn bc_ui_ele bc_black_btn" onmousedown="$(this).addClass('active')" onmouseup="$(this).removeClass('active')" onmouseout="$(this).removeClass('active')">
+							<div>
+								<div>Cancel</div>
+							</div>
+						</span>
+						<span id="confirm" class="bc_btn bc_ui_ele" tabindex="0" onmousedown="$(this).addClass('active')" onmouseup="$(this).removeClass('active')" onmouseout="$(this).removeClass('active')">
+							<div>
+								<div>OK</div>
+							</div>
+						</span>&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
+				<div class="popwin_middle_right"></div>
+				<div class="nofloat"></div>
+			</div>
+			<div class="popwin_bottom" tabindex="0" hidefocus="true">
+				<div class="popwin_bottom_left"></div>
+				<div class="popwin_bottom_center" style="width: 456px;"></div>
+				<div class="popwin_bottom_right">
+					<div class="popwin_resize"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>

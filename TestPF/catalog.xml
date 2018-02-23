@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Users/vgpe483/Downloads/VPNCentrexService_TelCel_20170914.wsdl" uri="src/conf/xml-resources/web-service-references/VPNCentrexService_TelCel_20170914/wsdl/VPNCentrexService_TelCel_20170914.wsdl"/>
+    <system systemId="https://10.209.67.103:8542/iPortal/login.action?WSDL" uri="src/conf/xml-resources/web-service-references/login/wsdl/10.209.67.103_8542/iPortal/login.action.wsdl"/>
+    <system systemId="http://10.209.67.103:14388/bmp/services/VPNCentrexService?wsdl" uri="src/conf/xml-resources/web-service-references/VPNCentrexService/wsdl/10.209.67.103_14388/bmp/services/VPNCentrexService.wsdl"/>
+</catalog>
