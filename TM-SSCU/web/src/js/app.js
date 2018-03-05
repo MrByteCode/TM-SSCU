@@ -1,7 +1,7 @@
 $(document).ready(function() {
-$(".file-dropzone").on('dragover', handleDragEnter);
-$(".file-dropzone").on('dragleave', handleDragLeave);
-$(".file-dropzone").on('drop', handleDragLeave);
+    $(".file-dropzone").on('dragleave', handleDragLeave);
+    $(".file-dropzone").on('dragover', handleDragEnter);
+    $(".file-dropzone").on('drop', handleDragLeave);
 
     function handleDragEnter(e) {
         this.classList.add('drag-over');
@@ -59,6 +59,10 @@ $(".file-dropzone").on('drop', handleDragLeave);
                 // Add the button to the file preview element.
                 file.previewElement.appendChild(removeButton);
             });
+            
+            this.on("error", function(file) {
+                myDropzone.removeFile(file);
+            });            
         }
     };
 
@@ -73,10 +77,10 @@ $(".file-dropzone").on('drop', handleDragLeave);
             }
             responseContent = responseContent + "<hr>";
         }
-        // from the library bootstrap-dialog.min.js
-        BootstrapDialog.show({
-            title : '<b>Server Response</b>',
-            message : responseContent
-        });
+//        // from the library bootstrap-dialog.min.js
+//        BootstrapDialog.show({
+//            title : '<b>Server Response</b>',
+//            message : responseContent
+//        });
     }
 });

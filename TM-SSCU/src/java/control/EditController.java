@@ -76,7 +76,7 @@ public class EditController {
                     usuario.setNombre(rs.getString("nombre"));
                     usuario.setCorreo(rs.getString("correo"));
                     usuario.setTelefono(rs.getString("telefono"));
-                    
+                    usuario.setIdUsuario(rs.getInt("idUsuario"));
                 }
                 return usuario;
                 }

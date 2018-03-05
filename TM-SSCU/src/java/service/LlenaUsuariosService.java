@@ -1,8 +1,8 @@
 package service;
 
-import DAO.DAOFileMeta;
-import DAO.DaoUsuarios;
-import DTO.DTOUsuarioFile;
+import dao.DAOFileMeta;
+import dao.DaoUsuarios;
+import dto.DTOUsuarioFile;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +33,10 @@ public class LlenaUsuariosService {
     }            
     
     public static List<Usuarios> getUsuarios() throws SQLException, ClassNotFoundException{
-        System.out.println("::::::::: CORRE AQUI");
         List<Usuarios> listUser  = new ArrayList<>();   
         listUser = DaoUsuarios.selectUsuarios();        
         for(Usuarios user : listUser){
             List<FileMeta> listFile = DAOFileMeta.selectFileMetaByUsuario(user.getIdUsuario()); 
-            System.out.println(":::::::::"+user.getIdUsuario());
             user.setFileMetaList(listFile);            
             listUser.add(user);
         }        

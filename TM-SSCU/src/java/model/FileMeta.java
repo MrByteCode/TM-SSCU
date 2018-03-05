@@ -1,11 +1,18 @@
 package model;
 
-public class FileMeta { 
+import java.sql.Blob;
+
+public class FileMeta {
+    private int idFile;
     private String fileName;
     private String fileSize;
     private String fileType;
     private int fileIdUsuario;
+    private Blob documentoBlob;
 
+    public FileMeta(){
+        
+    }
     public int getFileIdUsuario() {
         return fileIdUsuario;
     }
@@ -45,5 +52,21 @@ public class FileMeta {
 
     public void setBytes(byte[] bytes) {
         this.bytes = bytes;
+    }
+    
+    public Blob getDocumentoBlob() {
+        return documentoBlob;
+    }
+
+    public void setDocumentoBlob(Blob documentoBlob) {
+        this.documentoBlob = documentoBlob;
+    }
+
+    public int getIdFile() {
+        return idFile;
+    }
+
+    public void setIdFile(int idFile) {
+        this.idFile = idFile;
     }
 }

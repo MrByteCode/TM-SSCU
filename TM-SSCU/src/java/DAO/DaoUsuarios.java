@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,14 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Conection;
 import model.Usuarios;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DaoUsuarios {
-    private JdbcTemplate jdbcTemplate;   
     public static List<Usuarios> selectUsuarios() throws SQLException, ClassNotFoundException{        
         List<Usuarios> listUsuarios = new ArrayList<>();   
         PreparedStatement ps=null;
